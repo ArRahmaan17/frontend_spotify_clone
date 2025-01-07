@@ -47,6 +47,7 @@ export default function Navbar() {
     {
       name: "Home",
       href: "/",
+      outline: true,
       element:
         location.pathname === "/" ? (
           <ActiveHomeIcon className="size-6 h-10" />
@@ -95,7 +96,10 @@ export default function Navbar() {
                         key={item.name}
                         to={item.href ?? undefined}
                         aria-current={item.current ? "page" : undefined}
-                        className="text-gray-300 hover:text-white bg-gray-800 rounded-full px-3 text-sm font-medium focus-within:ring-2 focus-within:ring-white focus-within:ring-offset-2 focus-within:ring-offset-gray-800"
+                        className={`text-gray-300 hover:text-white bg-gray-800 rounded-full px-3 text-sm font-medium ${
+                          item.outline ??
+                          "focus-within:ring-2 focus-within:ring-white focus-within:ring-offset-2 focus-within:ring-offset-gray-800"
+                        }`}
                       >
                         {item.element}
                       </NavLink>
