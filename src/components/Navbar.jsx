@@ -50,25 +50,25 @@ export default function Navbar() {
       outline: true,
       element:
         location.pathname === "/" ? (
-          <ActiveHomeIcon className="size-6 h-10" />
+          <ActiveHomeIcon className="size-6 h-10 text-white" />
         ) : (
           <HomeIcon className="size-6 h-10" />
         ),
       current: true,
     },
     {
-      name: "Team",
+      name: "Search",
       element: (
         <SearchBar
           {...{
-            searchIcon: <MagnifyingGlassIcon className="size-6" />,
+            searchIcon: <MagnifyingGlassIcon className="size-8 group-hover:text-white" />,
             stackIcon:
               location.pathname === "/" ? (
-                <RectangleStackIcon className="size-6" />
+                <RectangleStackIcon className="size-8 hover:text-white" />
               ) : (
-                <ActiveRectangle className="size-6" />
+                <ActiveRectangle className="size-8 hover:text-white" />
               ),
-            minusIcon: <MinusIcon className="size-6 rotate-90" />,
+            minusIcon: <MinusIcon className="size-8 rotate-90 font-semibold" />,
           }}
         />
       ),
@@ -78,14 +78,14 @@ export default function Navbar() {
   return (
     <>
       <div className="min-h-full">
-        <Disclosure as="nav" className="bg-black">
+        <Disclosure as="nav" className="bg-black py-0">
           <div className="mx-auto px-4">
             <div className="flex h-16 items-center justify-between">
               <div className="shrink-0">
                 <img
                   alt="Your Company"
                   src="https://tailwindui.com/plus/img/logos/mark.svg?color=blue&shade=500"
-                  className="size-8"
+                  className="size-12"
                 />
               </div>
               <div className="flex items-center">
@@ -96,9 +96,9 @@ export default function Navbar() {
                         key={item.name}
                         to={item.href ?? undefined}
                         aria-current={item.current ? "page" : undefined}
-                        className={`text-gray-300 hover:text-white bg-gray-800 rounded-full px-3 text-sm font-medium ${
+                        className={`text-gray-400 group transition-all duration-200 ease-in-out  rounded-full px-3 text-sm font-medium ${
                           item.outline ??
-                          "focus-within:ring-2 focus-within:ring-white focus-within:ring-offset-2 focus-within:ring-offset-gray-800"
+                          "bg-gray-800/60 hover:bg-gray-800/100 focus-within:bg-gray-800/100 focus-within:ring-2 focus-within:text-white focus-within:ring-white focus-within:ring-offset-2 focus-within:ring-offset-gray-800"
                         }`}
                       >
                         {item.element}
@@ -111,7 +111,7 @@ export default function Navbar() {
                 <div className="ml-4 flex items-center md:ml-6">
                   <button
                     type="button"
-                    className="relative p-1 text-gray-400 hover:text-white"
+                    className="relative p-1 text-gray-400 transition-all duration-200 ease-in-out hover:text-white"
                   >
                     <span className="absolute -inset-1.5" />
                     <span className="sr-only">View notifications</span>
@@ -119,7 +119,7 @@ export default function Navbar() {
                   </button>
                   <Menu as="div" className="relative ml-3">
                     <div>
-                      <MenuButton className="relative flex max-w-xs items-center rounded-full bg-white dark:bg-gray-800 text-sm scale-100 hover:scale-105 active:scale-95">
+                      <MenuButton className="relative flex max-w-xs items-center rounded-full bg-white dark:bg-gray-800 text-sm scale-100 transition-all duration-200 ease-in-out hover:scale-105 active:scale-95">
                         <span className="absolute -inset-1.5" />
                         <span className="sr-only">Open user menu</span>
                         <img
@@ -137,7 +137,7 @@ export default function Navbar() {
                         <MenuItem key={item.name} className="mx-1">
                           <a
                             href={item.href ?? undefined}
-                            className="block px-4 py-2 font-normal text-gray-300 hover:bg-gray-700 hover:rounded-sm"
+                            className="block px-4 py-2 font-normal text-gray-400 transition-all duration-200 ease-in-out hover:bg-gray-700 hover:rounded-sm"
                           >
                             {item.name}
                           </a>
@@ -149,7 +149,7 @@ export default function Navbar() {
               </div>
               <div className="-mr-2 flex md:hidden">
                 {/* Mobile menu button */}
-                <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden">
+                <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 transition-all duration-200 ease-in-out hover:bg-gray-700 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden">
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
                   <Bars3Icon
@@ -176,7 +176,7 @@ export default function Navbar() {
                   className={classNames(
                     item.current
                       ? "bg-gray-900 text-white"
-                      : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                      : "text-gray-300 transition-all duration-200 ease-in-out hover:bg-gray-700 hover:text-white",
                     "block rounded-md px-3 py-2 text-base font-medium"
                   )}
                 >
@@ -203,7 +203,7 @@ export default function Navbar() {
                 </div>
                 <button
                   type="button"
-                  className="relative ml-auto shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden"
+                  className="relative ml-auto shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 transition-all duration-200 ease-in-out hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden"
                 >
                   <span className="absolute -inset-1.5" />
                   <span className="sr-only">View notifications</span>
@@ -216,7 +216,7 @@ export default function Navbar() {
                     key={item.name}
                     as="a"
                     href={item.href}
-                    className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
+                    className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 transition-all duration-200 ease-in-out hover:bg-gray-700 hover:text-white"
                   >
                     {item.name}
                   </DisclosureButton>
